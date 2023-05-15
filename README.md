@@ -6,10 +6,10 @@
 
 ⚠️ **This is the Strapi v4 version of this plugin! In order to use with v3, please use [release v.1.5.1](https://github.com/melishev/strapi-plugin-react-editorjs/releases/tag/v1.5.1).**
 
-
 ## 🙉 What it is?
 
 #### This is a plugin for [Strapi Headless CMS](https://strapi.io) that replaces the standard wysiwyg editor with the cool [Editor.js](https://editorjs.io) and all its compatible add-ons.
+
 <br>
 
 <img src="https://github.com/melishev/strapi-plugin-editor-js/blob/master/.github/assets/strapi-plugin-editorjs.gif">
@@ -35,6 +35,8 @@
 - [ ] [Personality Tool](https://github.com/editor-js/personality)
 - [ ] [Attaches Tool](https://github.com/editor-js/attaches)
 
+- [x] [Link Autocomplete](https://github.com/editor-js/link-autocomplete)
+
 <br>
 
 #### All of the above add-ons (if added) work initially when the plugin is loaded. You can also customize the add-ons available in your application using the instructions below.
@@ -49,19 +51,19 @@ yarn add strapi-plugin-react-editorjs
 npm install strapi-plugin-react-editorjs
 ```
 
-In order for Strapi to show the Link Tool thumbnails correctly, you will need to edit the 'strapi::security' line in ./config/middlewares.js. Change that line to the following (do this at your own risk). 
+In order for Strapi to show the Link Tool thumbnails correctly, you will need to edit the 'strapi::security' line in ./config/middlewares.js. Change that line to the following (do this at your own risk).
 
 ```js
 module.exports = [
   // ...
   {
-    name: 'strapi::security',
+    name: "strapi::security",
     config: {
       contentSecurityPolicy: {
         directives: {
-          'img-src': ['*'],
+          "img-src": ["*"],
         },
-      }
+      },
     },
   },
   // ...
@@ -74,12 +76,14 @@ module.exports = [
 
 If you want to change the look of the editor or add/remove editorJS plugins, you will need to do the following:
 
-1. If this plugin is already install via yarn or npm, uninstall: 
+1. If this plugin is already install via yarn or npm, uninstall:
+
 ```bash
 yarn remove strapi-plugin-react-editorjs
 # or
 npm uninstall strapi-plugin-react-editorjs
 ```
+
 2. Go to the ./src/plugins folder (create it if it doesn't exist) and clone the project:
 
 ```bash
@@ -88,6 +92,7 @@ git clone https://github.com/melishev/strapi-plugin-react-editorjs.git
 # If you wish to clone the Beta Branch
 git clone --single-branch --branch beta https://github.com/melishev/strapi-plugin-react-editorjs.git
 ```
+
 3. Go into the plugin and install dependencies:
    - `cd strapi-plugin-react-editorjs`
    - `yarn install` or `npm install`
@@ -96,17 +101,18 @@ git clone --single-branch --branch beta https://github.com/melishev/strapi-plugi
 ```js
 module.exports = ({ env }) => ({
   // ...
-  'editorjs': {
+  editorjs: {
     enabled: true,
-    resolve: './src/plugins/strapi-plugin-react-editorjs'
+    resolve: "./src/plugins/strapi-plugin-react-editorjs",
   },
   // ...
-})
+});
 ```
 
-5. To make changes to EditorJS plugins, edit the `./src/plugins/strapi-plugin-react-editorjs/admin/src/config/customTools.js` file. 
+5. To make changes to EditorJS plugins, edit the `./src/plugins/strapi-plugin-react-editorjs/admin/src/config/customTools.js` file.
    - Note: the Image Tool add-on has been highly customized in order to work in Strapi and cannot be edited in the `customTools.js` file. If you wish to develop it further, you may, but it will take much more advanced knowledge and testing.
 6. Rebuild Strapi after installation and after any changes made in the plugin.
+
 ```bash
 yarn build
 # or
