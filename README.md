@@ -70,6 +70,13 @@ module.exports = [
 ];
 ```
 
+also its required to add these environment variables for link lookup to work.
+
+```.env
+AUTO_COMPLETE_ENDPOINT='/api/glossaries'
+AUTO_COMPLETE_ENDPOINT_QUERY_PARAM=filters[href][$eq]
+```
+
 <br>
 
 ## ⚙️ How to extend/develop this plugin (optional)
