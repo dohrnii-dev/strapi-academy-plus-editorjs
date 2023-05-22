@@ -63,8 +63,10 @@ const customTools = {
   link: {
     class: LinkAutocomplete,
     config: {
-      endpoint: process.env.AUTO_COMPLETE_ENDPOINT,
-      queryParam: process.env.AUTO_COMPLETE_ENDPOINT_QUERY_PARAM,
+      endpoint: process.env.AUTO_COMPLETE_ENDPOINT || "/api/glossaries",
+      queryParam:
+        process.env.AUTO_COMPLETE_ENDPOINT_QUERY_PARAM ||
+        "filters[name][$containsi]",
     },
   },
   checklist: {
