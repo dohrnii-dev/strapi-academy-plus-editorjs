@@ -1,6 +1,6 @@
 {
   "name": "strapi-academy-plus-editorjs",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Customized plugin for Strapi Headless CMS, hiding the standard WYSIWYG editor and replacing it with Editor.js",
   "homepage": "https://market.strapi.io/plugins/strapi-plugin-react-editorjs",
   "strapi": {
