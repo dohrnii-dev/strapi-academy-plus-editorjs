@@ -37,7 +37,7 @@ const customTools = {
   LinkTool: {
     class: LinkTool,
     config: {
-      endpoint: `/api/${PluginId}/link`,
+      endpoint: `/api/v2/${PluginId}/link`,
     },
   },
   raw: {
